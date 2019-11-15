@@ -217,7 +217,7 @@ server.on('message',function(msg,info){
 		 	// Below is used if you use messageid and version in the configuration file	
 			if (config[payload.MessageId] && config[payload.MessageId].mqtt || config.all.mqtt) sendMqtt(payload.SystemId,payload.MessageId,obj);
 			if (config[payload.MessageId] && config[payload.MessageId].influx || config.all.influx) sendInflux(obj, tag);
-			if (config[payload.MessageId] && config[payload.MessageId].graphite || config.all.graphite) sendGraphite(payload.SystemId,payload.MessageId,obj);
+			if (config[payload.MessageId] && config[payload.MessageId].graphite || config.all.graphite) sendGraphite(payload.SystemId,messageID,obj);
 		} catch (e) {
 			errorText('Couldnt get payload for ' + payload.MessageId + ' Size: %s',msg.length);
 			console.log(e);
